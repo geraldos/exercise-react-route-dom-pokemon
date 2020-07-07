@@ -67,10 +67,6 @@ function LoginForm() {
 
     localStorage.setItem("user", JSON.stringify(userLogin));
     history.push("/pokemonall");
-
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000);
   }
 
   return (
