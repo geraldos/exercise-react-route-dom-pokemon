@@ -9,6 +9,12 @@ const Div = styled.div`
   padding: 10px;
 `;
 
+const DivTitle = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
 const DivValue = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -36,10 +42,15 @@ const H3Sub = styled.h3`
 
 const Avatar = styled.div`
   & img {
-    height: 500px;
-    width: 500px;
-    border-radius: 100%;
-    margin: 0 auto;
+    height: 400px;
+    width: 400px;
+  }
+`;
+
+const AvatarMini = styled.div`
+  & img {
+    height: 200px;
+    width: 200px;
   }
 `;
 
@@ -79,11 +90,16 @@ function PokemonDetails() {
     <div>
       <H1>Pokemon Detail</H1>
       {pokemon.sprites !== undefined && (
-        <Div>
+        <DivTitle>
           <Avatar>
             <img src={pokemon.sprites.front_shiny} alt="pokemon" />
+            <AvatarMini>
+              <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+              <img src={pokemon.sprites.back_default} alt={pokemon.name} />
+              <img src={pokemon.sprites.back_shiny} alt={pokemon.name} />
+            </AvatarMini>
           </Avatar>
-        </Div>
+        </DivTitle>
       )}
       <Hr />
       {pokemon.sprites !== undefined && (

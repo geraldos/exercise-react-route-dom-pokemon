@@ -66,7 +66,7 @@ function LoginForm() {
     event.preventDefault();
 
     localStorage.setItem("user", JSON.stringify(userLogin));
-    history.push("/");
+    history.push("/pokemonall");
   }
 
   return (
