@@ -78,39 +78,56 @@ function PokemonDetails() {
   return (
     <div>
       <H1>Pokemon Detail</H1>
-      <Div>
-        <Avatar>
-          {pokemon.sprites !== undefined && (
+      {pokemon.sprites !== undefined && (
+        <Div>
+          <Avatar>
             <img src={pokemon.sprites.front_shiny} alt="pokemon" />
-          )}
-        </Avatar>
-      </Div>
+          </Avatar>
+        </Div>
+      )}
       <Hr />
-      <Div>
-        <DivArticle>
-          <Div>
-            <DivValue>
-              <H3Sub>Name</H3Sub>
-              <H2Sub>{pokemon.name}</H2Sub>
-            </DivValue>
+      {pokemon.sprites !== undefined && (
+        <Div>
+          <DivArticle>
+            <Div>
+              <DivValue>
+                <H3Sub>Name</H3Sub>
+                <H2Sub>{pokemon.name}</H2Sub>
+              </DivValue>
 
-            <DivValue>
-              <H3Sub>Experience</H3Sub>
-              <H2Sub>{pokemon.base_experience}</H2Sub>
-            </DivValue>
+              <DivValue>
+                <H3Sub>Experience</H3Sub>
+                <H2Sub>{pokemon.base_experience}</H2Sub>
+              </DivValue>
 
-            <DivValue>
-              <H3Sub>Weight</H3Sub>
-              <H2Sub>{pokemon.weight}</H2Sub>
-            </DivValue>
+              <DivValue>
+                <H3Sub>Weight</H3Sub>
+                <H2Sub>{pokemon.weight}</H2Sub>
+              </DivValue>
 
-            <DivValue>
-              <H3Sub>Height</H3Sub>
-              <H2Sub>{pokemon.height}</H2Sub>
-            </DivValue>
-          </Div>
-        </DivArticle>
-      </Div>
+              <DivValue>
+                <H3Sub>Height</H3Sub>
+                <H2Sub>{pokemon.height}</H2Sub>
+              </DivValue>
+
+              <DivValue>
+                <H3Sub>Move</H3Sub>
+                <H2Sub>{pokemon.moves[0].move.name}</H2Sub>
+              </DivValue>
+
+              <DivValue>
+                <H3Sub>Ability</H3Sub>
+                <H2Sub>{pokemon.abilities[0].ability.name}</H2Sub>
+              </DivValue>
+
+              <DivValue>
+                <H3Sub>Stats</H3Sub>
+                <H2Sub>{pokemon.stats[0].base_stat}</H2Sub>
+              </DivValue>
+            </Div>
+          </DivArticle>
+        </Div>
+      )}
       <Hr />
     </div>
   );
