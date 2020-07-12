@@ -8,6 +8,9 @@ import PokemonAll from "./Pages/PokemonAll/PokemonAll";
 
 import PrivateRoute from "./Components/Helpers/PrivateRoute";
 import PokemonDetails from "./Components/PokemonDetails/PokemonDetails";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
 function App() {
   return (
     <div>

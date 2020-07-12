@@ -1,42 +1,6 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import { Container, Card, Col, Row, CardText } from "reactstrap";
 import { Link } from "react-router-dom";
-
-const Div = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 20px;
-`;
-
-const CardList = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 10px;
-`;
-
-const H1 = styled.h1`
-  display: flex;
-  justify-content: center;
-`;
-
-const Img = styled.img`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`;
-
-const Card = styled.div`
-  width: 400px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-
-  & img {
-    width: 100%;
-  }
-`;
 
 function PokemonData() {
   const [data, setData] = useState({});
@@ -52,29 +16,41 @@ function PokemonData() {
   }, []);
 
   return (
-    <Div>
-      <H1>Pokedex</H1>
-      <Div>
-        <CardList>
+    <Container style={{ background: "darkCyan" }}>
+      <Col>
+        <h1 style={{ textAlign: "center", padding: "10px" }}>Pokedex Apps</h1>
+
+        <Row
+          xs="1"
+          md="3"
+          lg="5"
+          style={{ padding: 20, justifyContent: "center" }}
+        >
           {data.results !== undefined &&
             data.results.map((item) => {
               const id = item.url.split("/")[6];
 
               return (
-                <Card key={id}>
+                <Card
+                  key={id}
+                  inverse
+                  color="info"
+                  style={{ margin: "0.5em", textAlign: "center" }}
+                >
+                  <img
+                    style={{ objectFit: "cover", margin: "1em" }}
+                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+                    alt="pokeimage"
+                  />
                   <Link to={`/pokemondetails/${item.name}`}>
-                    <Img
-                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-                      alt="pokeimage"
-                    />
-                    <H1>{item.name}</H1>
+                    <CardText>{item.name}</CardText>
                   </Link>
                 </Card>
               );
             })}
-        </CardList>
-      </Div>
-    </Div>
+        </Row>
+      </Col>
+    </Container>
   );
 }
 
